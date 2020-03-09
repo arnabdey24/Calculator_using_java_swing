@@ -11,7 +11,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
     JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonMode,buttonBack,
             buttonPlus,buttonMinus,buttonDiv,buttonPro,buttonDot,buttonEqual,buttonSquare ,buttonClear,buttonRoot;
     JPanel panel;
-    JLabel label;
+    JLabel label,label2;
 
     public CalculatorFrame(String title) {
         super(title);
@@ -22,12 +22,22 @@ public class CalculatorFrame extends JFrame implements ActionListener {
 
         panel = new JPanel();
         panel.setLayout(null);
+        panel.setSize(381, 541);
 
         label = new JLabel();
 
-        label.setBounds(10, 20, 1000, 25);
-        label.setFont(new Font("Calibri", Font.BOLD,30));
+        label.setBounds(10, 30, 381, 35);
+        label.setFont(new Font("Calibri", Font.BOLD,20));
         panel.add(label);
+        panel.setBackground(Color.CYAN);
+
+        //label two
+        label2 = new JLabel();
+
+        label2.setBounds(10, 85, 341, 35);
+        label2.setFont(new Font("Calibri", Font.BOLD,30));
+        label2.setHorizontalAlignment(JLabel.RIGHT);
+        panel.add(label2);
         panel.setBackground(Color.CYAN);
 
 
@@ -128,10 +138,18 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         panel.add(buttonMode);
 
         this.add(panel);
+        //pack();
+        //setResizable(false);
 
     }
     private String exp="";
+    boolean answered=false;
         public void actionPerformed(ActionEvent actionevent){
+            if(answered){
+                label.setText("");
+                label2.setText("");
+                answered=false;
+            }
             String str = actionevent.getActionCommand();
             switch (str) {
                 case "1":
@@ -204,8 +222,9 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     //System.out.println(exp);
                     String ans = Test.evaluate(exp);
                     //System.out.println(ans);
-                    label.setText(ans);
+                    label2.setText(ans);
                     exp="";
+                    answered=true;
                     break;
                 case "Backspace":
                     String tmp = label.getText();
