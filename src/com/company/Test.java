@@ -34,16 +34,16 @@ public class Test {
                     break;
             }
             s="";
-        for (int i = 0; i < index-1; i++) {
-            s+=w[i].toString()+" ";
-        }
-        s+=result+" ";
-        for (int i = index+2; i < w.length; i++) {
-            s+=w[i].toString()+" ";
-        }
+            for (int i = 0; i < index-1; i++) {
+                s+=w[i].toString()+" ";
+            }
+            s+=result+" ";
+            for (int i = index+2; i < w.length; i++) {
+                s+=w[i].toString()+" ";
+            }
 
 
-    }
+        }
         return s;
     }
 
@@ -57,7 +57,7 @@ public class Test {
     }
 
     /*public static void main(String[] args) {
-        String s="-1.000";
+        String s="1+9";
 
         System.out.println(evaluate(s));
 

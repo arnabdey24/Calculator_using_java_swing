@@ -7,10 +7,11 @@ import java.awt.event.ActionListener;
 
 public class CalculatorFrame extends JFrame implements ActionListener {
 
-
-    private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonMode,buttonBack,
+    Double result;
+    JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonMode,buttonBack,
             buttonPlus,buttonMinus,buttonDiv,buttonPro,buttonDot,buttonEqual,buttonSquare ,buttonClear,buttonRoot;
-    private JLabel label,label2;
+    JPanel panel;
+    JLabel label,label2;
 
     public CalculatorFrame(String title) {
         super(title);
@@ -19,7 +20,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         setLocation(950, 100);
         setSize(381, 541);
 
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         panel.setLayout(null);
         panel.setSize(381, 541);
 
@@ -28,7 +29,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         label.setBounds(10, 30, 381, 35);
         label.setFont(new Font("Calibri", Font.BOLD,20));
         panel.add(label);
-        panel.setBackground(Color.CYAN);
+        panel.setBackground(Color.lightGray);
 
         //label two
         label2 = new JLabel();
@@ -37,7 +38,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         label2.setFont(new Font("Calibri", Font.BOLD,30));
         label2.setHorizontalAlignment(JLabel.RIGHT);
         panel.add(label2);
-        panel.setBackground(Color.CYAN);
+        panel.setBackground(Color.lightGray);
 
 
 
@@ -136,9 +137,20 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         buttonMode.addActionListener(this);
         panel.add(buttonMode);
 
+        buttonMode.addActionListener(new ActionListener(){
+
+            public void actionPerformed(ActionEvent e){
+                Conversion frame1 = new Conversion();
+                frame1.setVisible(true);
+                frame1.setLocation(500, 100);
+                frame1.setSize(381, 541);
+                frame1.setTitle("Converter");
+            }
+        });
+
         this.add(panel);
         //pack();
-        //setResizable(false);
+        setResizable(false);
 
     }
     private String exp="";
@@ -197,11 +209,23 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     break;
                 case "+":
                     label.setText(label.getText() + buttonPlus.getText());
-                    exp = exp + " " + buttonPlus.getText() + " ";
+                    if(exp.isBlank())
+                        exp="";
+                    else if (exp.endsWith(" * ") || exp.endsWith(" / "))
+                        exp=exp+buttonPlus.getText();
+                    else
+                        exp = exp + " " + buttonPlus.getText() + " ";
                     break;
                 case "-":
                     label.setText(label.getText() + buttonMinus.getText());
-                    exp = exp + " " + buttonMinus.getText() + " ";
+                    if(exp.isBlank())
+                        exp=buttonMinus.getText();
+                    else if (exp.endsWith(" * ") || exp.endsWith(" / ")) {
+                        System.out.println("come");
+                        exp = exp + buttonMinus.getText();
+                    }
+                    else
+                        exp = exp + " " + buttonMinus.getText() + " ";
                     break;
                 case "x":
                     label.setText(label.getText() + buttonPro.getText());
@@ -218,9 +242,9 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     label.setText(label.getText() + buttonRoot.getText());
                     break;
                 case "=":
-                    //System.out.println(exp);
+                    System.out.println(exp);
                     String ans = Test.evaluate(exp);
-                    //System.out.println(ans);
+                    System.out.println(ans);
                     label2.setText(ans);
                     exp="";
                     answered=true;
