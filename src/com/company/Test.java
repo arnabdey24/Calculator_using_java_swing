@@ -56,14 +56,6 @@ public class Test {
             return 0;
     }
 
-    /*public static void main(String[] args) {
-        String s="1+9";
-
-        System.out.println(evaluate(s));
-
-
-    }*/
-
 
 
 

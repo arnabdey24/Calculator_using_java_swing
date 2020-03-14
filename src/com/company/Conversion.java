@@ -9,9 +9,8 @@ import javax.swing.*;
 
 public class Conversion extends JFrame{
     private Container c;
-    private JTextField f2, f3, base, height, area;
+    private JTextField f2, f3;
     private JComboBox cb, cb1;
-    private double num1, convert;
     private JButton bcon, clear;
 
     
@@ -19,15 +18,7 @@ public class Conversion extends JFrame{
     components();
     }
 
-    public static void main(String[] args) {
-        Conversion frame1 = new Conversion();
-        frame1.setVisible(true);
-        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame1.setLocation(950, 100);
-        frame1.setSize(381, 541);
 
-    }
-    
     public void components(){
         c =this.getContentPane();
         c.setLayout(null);
@@ -86,7 +77,7 @@ public class Conversion extends JFrame{
 
           double c = Double.parseDouble(f2.getText());
 
-          double f = (double)(c*1.8+32);
+          double f = (c*1.8+32);
           f3.setText(String.valueOf(f));
           }
 
@@ -94,7 +85,7 @@ public class Conversion extends JFrame{
 
           double c = Double.parseDouble(f2.getText());
 
-          double k = (double)(c+273.15);
+          double k = (c+273.15);
           f3.setText(String.valueOf(k));
           }
 
@@ -108,7 +99,7 @@ public class Conversion extends JFrame{
        {
            double f = Double.parseDouble(f2.getText());
 
-           double c = (double)((f - 32)*5/9);
+           double c = ((f - 32)*5/9);
 
            f3.setText(String.valueOf(c));
        }
@@ -117,7 +108,7 @@ public class Conversion extends JFrame{
        {
            double f = Double.parseDouble(f2.getText());
 
-           double k = (double)(((f - 32)*5/9)+273.15);
+           double k = (((f - 32)*5/9)+273.15);
 
            f3.setText(String.valueOf(k));
        }
@@ -133,7 +124,7 @@ public class Conversion extends JFrame{
        {
            double k = Double.parseDouble(f2.getText());
 
-           double c = (double)(0 - 273.15);
+           double c = (k*1 - 273.15);
 
            f3.setText(String.valueOf(c));
        }
@@ -141,7 +132,7 @@ public class Conversion extends JFrame{
        {
            double k = Double.parseDouble(f2.getText());
 
-           double f = (double)(0 - 273.15) * 9/5 +32;
+           double f = (k*10 - 273.15) * 9/5 +32;
 
            f3.setText(String.valueOf(f));
        }

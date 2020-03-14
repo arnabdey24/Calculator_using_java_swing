@@ -1,4 +1,3 @@
-
 package com.company;
 
 import java.awt.Color;
@@ -83,7 +82,7 @@ public class UnitConvert extends JFrame{
 
           double m = Double.parseDouble(U1.getText());
 
-          double k = (double)(m/1000);
+          double k = (m/1000);
           U2.setText(String.valueOf(k));
           }
 
@@ -91,7 +90,7 @@ public class UnitConvert extends JFrame{
 
           double m = Double.parseDouble(U1.getText());
 
-          double c = (double)(m/100);
+          double c = (m/100);
           U2.setText(String.valueOf(c));
           }
 
@@ -99,7 +98,7 @@ public class UnitConvert extends JFrame{
 
           double m = Double.parseDouble(U1.getText());
 
-          double mm = (double)(m*1000);
+          double mm = (m*1000);
 
           U2.setText(String.valueOf(mm));
           }
@@ -108,7 +107,7 @@ public class UnitConvert extends JFrame{
        {
            double m = Double.parseDouble(U1.getText());
 
-           double d = (double)(m*10);
+           double d = (m*10);
 
            U2.setText(String.valueOf(d));
        }
@@ -124,7 +123,7 @@ public class UnitConvert extends JFrame{
        {
            double m = Double.parseDouble(U1.getText());
 
-           double f = (double)(m*3.28084);
+           double f = (m*3.28084);
 
            U2.setText(String.valueOf(f));
        }
@@ -133,7 +132,7 @@ public class UnitConvert extends JFrame{
        {
            double m = Double.parseDouble(U1.getText());
 
-           double i = (double)(m*39.3701);
+           double i = (m*39.3701);
 
            U2.setText(String.valueOf(i));
        }
@@ -142,7 +141,7 @@ public class UnitConvert extends JFrame{
 
           double k = Double.parseDouble(U1.getText());
 
-          double m = (double)(k*1000);
+          double m = (k*1000);
           U2.setText(String.valueOf(m));
           }
 
@@ -150,7 +149,7 @@ public class UnitConvert extends JFrame{
 
           double k = Double.parseDouble(U1.getText());
 
-          double c = (double)(k*100);
+          double c = (k*100000);
           U2.setText(String.valueOf(c));
           }
 
@@ -158,7 +157,7 @@ public class UnitConvert extends JFrame{
 
           double k = Double.parseDouble(U1.getText());
 
-          double mm = (double)(k*1000000);
+          double mm = (k*1000000);
 
           U2.setText(String.valueOf(mm));
           }
@@ -167,7 +166,7 @@ public class UnitConvert extends JFrame{
        {
            double k = Double.parseDouble(U1.getText());
 
-           double d = (double)(k*10000);
+           double d = (k*10000);
 
            U2.setText(String.valueOf(d));
        }
@@ -183,7 +182,7 @@ public class UnitConvert extends JFrame{
        {
            double k = Double.parseDouble(U1.getText());
 
-           double f = (double)(k*3280.84);
+           double f = (k*3280.84);
 
            U2.setText(String.valueOf(f));
        }
@@ -192,7 +191,7 @@ public class UnitConvert extends JFrame{
        {
            double k = Double.parseDouble(U1.getText());
 
-           double i = (double)(k*39370.1);
+           double i = (k*39370.1);
 
            U2.setText(String.valueOf(i));
        }
@@ -201,7 +200,7 @@ public class UnitConvert extends JFrame{
 
           double c = Double.parseDouble(U1.getText());
 
-          double k = (double)(c*100000);
+          double k = (c*0.00001);
           U2.setText(String.valueOf(k));
           }
 
@@ -261,7 +260,7 @@ public class UnitConvert extends JFrame{
 
           double d = Double.parseDouble(U1.getText());
 
-          double k = (double)(d*10000);
+          double k = (double)(d*0.0001);
           U2.setText(String.valueOf(k));
           }
 
@@ -320,7 +319,7 @@ public class UnitConvert extends JFrame{
 
           double mm = Double.parseDouble(U1.getText());
 
-          double k = (double)(mm/1000000);
+          double k = (mm*0.000001);
           U2.setText(String.valueOf(k));
           }
 

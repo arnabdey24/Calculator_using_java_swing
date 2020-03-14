@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 
 public class CalculatorFrame extends JFrame implements ActionListener {
 
-    Double result;
+
     private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonUnit,buttonTemp,
-            buttonPlus,buttonMinus,buttonDiv,buttonPro,buttonDot,buttonEqual,buttonSquare ,buttonClear,buttonRoot, buttonTri;
+            buttonPlus,buttonMinus,buttonDiv,buttonPro,buttonDot,buttonEqual ,buttonClear, buttonTri;
     private JPanel panel;
     private JLabel label,label2;
 
@@ -145,11 +145,6 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         buttonUnit.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
-                /*Conversion frame1 = new Conversion();
-                frame1.setVisible(true);
-                frame1.setLocation(500, 100);
-                frame1.setSize(381, 541);
-                frame1.setTitle("Converter");*/
 
                 UnitConvert Uframe = new UnitConvert();
                 Uframe.setVisible(true);
@@ -254,7 +249,6 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     if(exp.isBlank())
                         exp=buttonMinus.getText();
                     else if (exp.endsWith(" * ") || exp.endsWith(" / ")) {
-                        System.out.println("come");
                         exp = exp + buttonMinus.getText();
                     }
                     else
@@ -268,12 +262,6 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     label.setText(label.getText() + buttonDiv.getText());
                     exp = exp + " " + buttonDiv.getText() + " ";
                     break;
-                case "^":
-                    label.setText(label.getText() + buttonSquare.getText());
-                    break;
-                case "root":
-                    label.setText(label.getText() + buttonRoot.getText());
-                    break;
                 case "=":
                     System.out.println(exp);
                     String ans = Test.evaluate(exp);
@@ -282,22 +270,11 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     exp="";
                     answered=true;
                     break;
-                case "Backspace":
-
-                    break;
                 case "C":
                     label.setText("");
+                    exp="";
                     break;
             }
 
         }
-
-
-
-
-
-
-
-
-
     }
