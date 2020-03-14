@@ -56,6 +56,20 @@ public class Test {
             return 0;
     }
 
+    public static String minimization(String ans) {
+        try {
+            double n = Double.parseDouble(ans);
+            int m = (int) n;
+            if (n == m) {
+                return String.valueOf(m);
+            } else {
+                return String.valueOf(n);
+            }
+        }catch (NumberFormatException e){
+            return "Invalid";
+        }
+    }
+
 
 
 

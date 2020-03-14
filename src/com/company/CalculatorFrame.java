@@ -181,9 +181,11 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         setResizable(false);
 
     }
+    int count=0;
     private String exp="";
     boolean answered=false;
         public void actionPerformed(ActionEvent actionevent){
+             count++;
             if(answered){
                 label.setText("");
                 label2.setText("");
@@ -192,87 +194,122 @@ public class CalculatorFrame extends JFrame implements ActionListener {
             String str = actionevent.getActionCommand();
             switch (str) {
                 case "1":
-                    label.setText(label.getText() + button1.getText());
-                    exp = exp + button1.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button1.getText());
+                        exp = exp + button1.getText();
+                    }
                     break;
                 case "2":
-                    label.setText(label.getText() + button2.getText());
-                    exp = exp + button2.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button2.getText());
+                        exp = exp + button2.getText();
+                    }
                     break;
                 case "3":
-                    label.setText(label.getText() + button3.getText());
-                    exp = exp + button3.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button3.getText());
+                        exp = exp + button3.getText();
+                    }
                     break;
                 case "4":
-                    label.setText(label.getText() + button4.getText());
-                    exp = exp + button4.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button4.getText());
+                        exp = exp + button4.getText();
+                    }
                     break;
                 case "5":
-                    label.setText(label.getText() + button5.getText());
-                    exp = exp + button5.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button5.getText());
+                        exp = exp + button5.getText();
+                    }
                     break;
                 case "6":
-                    label.setText(label.getText() + button6.getText());
-                    exp = exp + button6.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button6.getText());
+                        exp = exp + button6.getText();
+                    }
                     break;
                 case "7":
-                    label.setText(label.getText() + button7.getText());
-                    exp = exp + button7.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button7.getText());
+                        exp = exp + button7.getText();
+                    }
                     break;
                 case "8":
-                    label.setText(label.getText() + button8.getText());
-                    exp =exp + button8.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button8.getText());
+                        exp = exp + button8.getText();
+                    }
                     break;
                 case "9":
-                    label.setText(label.getText() + button9.getText());
-                    exp = exp + button9.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button9.getText());
+                        exp = exp + button9.getText();
+                    }
                     break;
                 case "0":
-                    label.setText(label.getText() + button0.getText());
-                    exp = exp + button0.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + button0.getText());
+                        exp = exp + button0.getText();
+                    }
                     break;
                 case ".":
-                    label.setText(label.getText() + buttonDot.getText());
-                    exp = exp + buttonDot.getText();
+                    if(count<32) {
+                        label.setText(label.getText() + buttonDot.getText());
+                        exp = exp + buttonDot.getText();
+                    }
                     break;
                 case "+":
-                    label.setText(label.getText() + buttonPlus.getText());
-                    if(exp.isBlank())
-                        exp="";
-                    else if (exp.endsWith(" * ") || exp.endsWith(" / "))
-                        exp=exp+buttonPlus.getText();
-                    else
-                        exp = exp + " " + buttonPlus.getText() + " ";
+                    if(count<30) {
+                        label.setText(label.getText() + buttonPlus.getText());
+                        if (exp.isBlank())
+                            exp = "";
+                        else if (exp.endsWith(" * ") || exp.endsWith(" / "))
+                            exp = exp + buttonPlus.getText();
+                        else
+                            exp = exp + " " + buttonPlus.getText() + " ";
+                    }
                     break;
                 case "-":
-                    label.setText(label.getText() + buttonMinus.getText());
-                    if(exp.isBlank())
-                        exp=buttonMinus.getText();
-                    else if (exp.endsWith(" * ") || exp.endsWith(" / ")) {
-                        exp = exp + buttonMinus.getText();
+                    if(count<30) {
+                        label.setText(label.getText() + buttonMinus.getText());
+                        if (exp.isBlank())
+                            exp = buttonMinus.getText();
+                        else if (exp.endsWith(" * ") || exp.endsWith(" / ")) {
+                            exp = exp + buttonMinus.getText();
+                        } else
+                            exp = exp + " " + buttonMinus.getText() + " ";
                     }
-                    else
-                        exp = exp + " " + buttonMinus.getText() + " ";
                     break;
                 case "x":
-                    label.setText(label.getText() + buttonPro.getText());
-                    exp = exp + " " + "*" + " ";
+                    if(count<30) {
+                        label.setText(label.getText() + buttonPro.getText());
+                        exp = exp + " " + "*" + " ";
+                    }
                     break;
                 case "/":
-                    label.setText(label.getText() + buttonDiv.getText());
-                    exp = exp + " " + buttonDiv.getText() + " ";
+                    if(count<30) {
+                        label.setText(label.getText() + buttonDiv.getText());
+                        exp = exp + " " + buttonDiv.getText() + " ";
+                    }
                     break;
                 case "=":
                     System.out.println(exp);
                     String ans = Test.evaluate(exp);
+
+                    ans=Test.minimization(ans);
+
                     System.out.println(ans);
                     label2.setText(ans);
                     exp="";
                     answered=true;
+                    count=0;
                     break;
                 case "C":
                     label.setText("");
+                    label2.setText("");
                     exp="";
+                    count=0;
                     break;
             }
 
