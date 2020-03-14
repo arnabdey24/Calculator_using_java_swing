@@ -22,17 +22,13 @@ public class UnitConvert extends JFrame{
     }
     
     public static void main(String[] args) {
-         UnitConvert Uframe = new UnitConvert();
-         Uframe.setVisible(true);
-        Uframe.setLocation(500, 100);
-        Uframe.setSize(381, 541);
-        Uframe.setTitle("Unit Conversion");
+
     }
 
     public void components3(){
     c3 =this.getContentPane();
     c3.setLayout(null);
-    c3.setBackground(Color.CYAN);
+    c3.setBackground(Color.lightGray);
 
 
     clr = new JButton("Clear");

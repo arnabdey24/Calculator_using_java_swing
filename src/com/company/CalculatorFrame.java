@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class CalculatorFrame extends JFrame implements ActionListener {
 
     Double result;
-    private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonMode,buttonBack,
-            buttonPlus,buttonMinus,buttonDiv,buttonPro,buttonDot,buttonEqual,buttonSquare ,buttonClear,buttonRoot;
+    private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonUnit,buttonTemp,
+            buttonPlus,buttonMinus,buttonDiv,buttonPro,buttonDot,buttonEqual,buttonSquare ,buttonClear,buttonRoot, buttonTri;
     private JPanel panel;
     private JLabel label,label2;
 
@@ -26,7 +26,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
 
         label = new JLabel();
 
-        label.setBounds(10, 30, 381, 35);
+        label.setBounds(10, 30, 350, 35);
         label.setFont(new Font("Calibri", Font.BOLD,20));
         panel.add(label);
         panel.setBackground(Color.lightGray);
@@ -117,6 +117,11 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         button9.addActionListener(this);
         panel.add(button9);
 
+        buttonTri = new JButton("<html>Triangle<br />Area</html>");
+        buttonTri.setBounds(93, 196, 89, 60);
+        buttonTri.addActionListener(this);
+        panel.add(buttonTri);
+
         buttonPro = new JButton("x");
         buttonPro.setBounds(273, 257, 89, 60);
         buttonPro.addActionListener(this);
@@ -127,24 +132,52 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         buttonDiv.addActionListener(this);
         panel.add(buttonDiv);
 
-        buttonBack = new JButton("Backspace");
-        buttonBack.setBounds(135,196,136,60);
-        buttonBack.addActionListener(this);
-        panel.add(buttonBack);
+        buttonTemp = new JButton("<html>Temp.<br />Converter</html>");
+        buttonTemp.setBounds(183,196,89,60);
+        buttonTemp.addActionListener(this);
+        panel.add(buttonTemp);
 
-        buttonMode = new JButton("Mode");
-        buttonMode.setBounds(3,196,130,60);
-        buttonMode.addActionListener(this);
-        panel.add(buttonMode);
+        buttonUnit = new JButton("<html>Unit<br />Converter</html>");
+        buttonUnit.setBounds(3,196,89,60);
+        buttonUnit.addActionListener(this);
+        panel.add(buttonUnit);
 
-        buttonMode.addActionListener(new ActionListener(){
+        buttonUnit.addActionListener(new ActionListener(){
+
+            public void actionPerformed(ActionEvent e){
+                /*Conversion frame1 = new Conversion();
+                frame1.setVisible(true);
+                frame1.setLocation(500, 100);
+                frame1.setSize(381, 541);
+                frame1.setTitle("Converter");*/
+
+                UnitConvert Uframe = new UnitConvert();
+                Uframe.setVisible(true);
+                Uframe.setLocation(950, 100);
+                Uframe.setSize(381, 541);
+                Uframe.setTitle("Unit Conversion");
+            }
+        });
+
+        buttonTemp.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
                 Conversion frame1 = new Conversion();
                 frame1.setVisible(true);
-                frame1.setLocation(500, 100);
+                frame1.setLocation(950, 100);
                 frame1.setSize(381, 541);
                 frame1.setTitle("Converter");
+            }
+        });
+
+        buttonTri.addActionListener(new ActionListener(){
+
+            public void actionPerformed(ActionEvent e){
+                Triangle Tframe = new Triangle();
+                Tframe.setVisible(true);
+                Tframe.setLocation(950, 100);
+                Tframe.setSize(381, 541);
+                Tframe.setTitle("Triangle Area");
             }
         });
 
@@ -250,10 +283,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     answered=true;
                     break;
                 case "Backspace":
-                    String tmp = label.getText();
-                    int len = tmp.length();
-                    tmp = tmp.substring(0, len - 1);
-                    label.setText(tmp);
+
                     break;
                 case "C":
                     label.setText("");

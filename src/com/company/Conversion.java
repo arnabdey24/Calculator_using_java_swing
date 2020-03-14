@@ -5,12 +5,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class Conversion extends JFrame{
     private Container c;
@@ -18,13 +13,12 @@ public class Conversion extends JFrame{
     private JComboBox cb, cb1;
     private double num1, convert;
     private JButton bcon, clear;
-    private JRadioButton temp, unit, tri;
-    private ButtonGroup grp;
+
     
     Conversion(){
     components();
     }
-    
+
     public static void main(String[] args) {
         Conversion frame1 = new Conversion();
         frame1.setVisible(true);
@@ -37,29 +31,10 @@ public class Conversion extends JFrame{
     public void components(){
         c =this.getContentPane();
         c.setLayout(null);
-        c.setBackground(Color.CYAN);
+        c.setBackground(Color.lightGray);
 
 
 
-        grp = new ButtonGroup();
-
-
-        temp = new JRadioButton("Temperature");
-        temp.setBounds(20, 30, 100, 40);
-        temp.setSelected(true);
-        c.add(temp);
-
-        unit = new JRadioButton("Unit");
-        unit.setBounds(130, 30, 60, 40);
-        c.add(unit);
-
-        tri = new JRadioButton("Triangle");
-        tri.setBounds(200, 30, 80, 40);
-        c.add(tri);
-
-        grp.add(temp);
-        grp.add(unit);
-        grp.add(tri);
 
         f2 = new JTextField();
     f2.setBounds(20, 100, 200, 60);
@@ -68,6 +43,8 @@ public class Conversion extends JFrame{
     f3 = new  JTextField();
     f3.setBounds(20, 165, 200, 60);
     c.add(f3);
+
+
 
     cb = new JComboBox();
     cb.setBounds(230, 100, 89, 60);
@@ -100,6 +77,10 @@ public class Conversion extends JFrame{
 
         String str1 = (String)cb.getSelectedItem();
           String str2 = (String)cb1.getSelectedItem();
+
+            if(f2.getText()==null && f3.getText()==null){
+                bcon.setToolTipText("Invalid");
+            }
 
           if(str1.equals("Celcius") && str2.equals("Fahrenheit")){
 
@@ -190,59 +171,7 @@ public class Conversion extends JFrame{
     });
 
 
-     temp.addActionListener(new ActionListener(){
 
-        public void actionPerformed(ActionEvent e){
-
-            if(e.getSource()== temp){
-            c.setVisible(true);
-            }
-
-
-          }
-
-
-
-    });
-
-      tri.addActionListener(new ActionListener(){
-
-        public void actionPerformed(ActionEvent e){
-
-            if(e.getSource()== tri){
-            Triangle Tframe = new Triangle();
-         Tframe.setVisible(true);
-        Tframe.setLocation(500, 100);
-        Tframe.setSize(381, 541);
-        Tframe.setTitle("Triangle Area");
-            }
-
-
-          }
-
-
-
-    });
-
-
-      unit.addActionListener(new ActionListener(){
-
-        public void actionPerformed(ActionEvent e){
-
-            if(e.getSource()== unit){
-            UnitConvert Uframe = new UnitConvert();
-         Uframe.setVisible(true);
-        Uframe.setLocation(500, 100);
-        Uframe.setSize(381, 541);
-        Uframe.setTitle("Unit Conversion");
-            }
-
-
-          }
-
-
-
-    });
 
 
     }

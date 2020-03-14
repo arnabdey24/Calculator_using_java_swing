@@ -25,7 +25,7 @@ public class Triangle extends JFrame{
     public void components2(){
     c2 =this.getContentPane();
         c2.setLayout(null);
-        c2.setBackground(Color.CYAN);
+        c2.setBackground(Color.lightGray);
         
         base = new JTextField();
         base.setBounds(20, 90, 80, 40);
@@ -37,6 +37,7 @@ public class Triangle extends JFrame{
         
         area = new JTextField();
         area.setBounds(170, 160, 80, 40);
+        area.setEditable(false);
         c2.add(area);
         
         Tb = new JButton("Area");
