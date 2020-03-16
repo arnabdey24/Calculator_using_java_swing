@@ -11,380 +11,363 @@ import javax.swing.JTextField;
 
 public class UnitConvert extends JFrame{
     
-    private JButton clr, Uc;
-    private Container c3;
-    private JTextField U1, U2;
-    private JComboBox Ucb1, Ucb2;
+    private JButton clear, unitConvert;
+    private Container container;
+    private JTextField textField1, textField2;
+    private JComboBox comboBox1, comboBox2;
     
     UnitConvert(){
     components3();
     }
-    
-    public static void main(String[] args) {
 
-    }
 
     public void components3(){
-    c3 =this.getContentPane();
-    c3.setLayout(null);
-    c3.setBackground(Color.lightGray);
+    container =this.getContentPane();
+    container.setLayout(null);
+    container.setBackground(Color.lightGray);
 
 
-    clr = new JButton("Clear");
-    clr.setBounds(20, 260, 80, 40);
-    c3.add(clr);
+    clear = new JButton("Clear");
+    clear.setBounds(20, 260, 80, 40);
+    container.add(clear);
 
-    Uc = new JButton("Convert");
-    Uc.setBounds(140, 260, 80, 40);
-    c3.add(Uc);
+    unitConvert = new JButton("Convert");
+    unitConvert.setBounds(140, 260, 80, 40);
+    container.add(unitConvert);
 
-     U1 = new JTextField();
-     U1.setBounds(20, 90, 80, 40);
-     c3.add(U1);
+     textField1 = new JTextField();
+     textField1.setBounds(20, 90, 80, 40);
+     container.add(textField1);
 
-     U2 = new JTextField();
-     U2.setBounds(20, 190, 80, 40);
-     c3.add(U2);
+     textField2 = new JTextField();
+     textField2.setBounds(20, 190, 80, 40);
+     container.add(textField2);
 
-     Ucb1 = new JComboBox();
-    Ucb1.setBounds(140, 90, 89, 40);
-    Ucb1.addItem("None");
-    Ucb1.addItem("Metre");
-    Ucb1.addItem("Centimetre");
-    Ucb1.addItem("Kilometre");
-    Ucb1.addItem("Millimetre");
-    Ucb1.addItem("Decimetre");
-    Ucb1.addItem("Feet");
-    Ucb1.addItem("Inch");
-    c3.add(Ucb1);
+     comboBox1 = new JComboBox();
+     comboBox1.setBounds(140, 90, 89, 40);
+        comboBox1.addItem("None");
+        comboBox1.addItem("Metre");
+        comboBox1.addItem("Centimetre");
+        comboBox1.addItem("Kilometre");
+        comboBox1.addItem("Millimetre");
+        comboBox1.addItem("Decimetre");
+        comboBox1.addItem("Feet");
+        comboBox1.addItem("Inch");
+    container.add(comboBox1);
 
-    Ucb2 = new JComboBox();
-    Ucb2.setBounds(140, 190, 89, 40);
-    Ucb2.addItem("None");
-    Ucb2.addItem("Centimetre");
-    Ucb2.addItem("Kilometre");
-    Ucb2.addItem("Decimetre");
-    Ucb2.addItem("Millimetre");
-    Ucb2.addItem("Metre");
-    Ucb2.addItem("Feet");
-    Ucb2.addItem("Inch");
-    c3.add(Ucb2);
+    comboBox2 = new JComboBox();
+        comboBox2.setBounds(140, 190, 89, 40);
+        comboBox2.addItem("None");
+        comboBox2.addItem("Centimetre");
+        comboBox2.addItem("Kilometre");
+        comboBox2.addItem("Decimetre");
+        comboBox2.addItem("Millimetre");
+        comboBox2.addItem("Metre");
+        comboBox2.addItem("Feet");
+        comboBox2.addItem("Inch");
+    container.add(comboBox2);
 
 
-    Uc.addActionListener(new ActionListener(){
+    unitConvert.addActionListener(new ActionListener(){
 
-        public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e) {
 
-          String box1 = (String)Ucb1.getSelectedItem();
-          String box2 = (String)Ucb2.getSelectedItem();
+            try {
 
-          if(box1.equals("Metre") && box2.equals("Kilometre")){
+                String box1 = (String) comboBox1.getSelectedItem();
+                String box2 = (String) comboBox2.getSelectedItem();
 
-          double m = Double.parseDouble(U1.getText());
+                if (box1.equals("Metre") && box2.equals("Kilometre")) {
 
-          double k = (m/1000);
-          U2.setText(String.valueOf(k));
-          }
+                    double m = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Metre") && box2.equals("Centimetre")){
+                    double k = (m / 1000);
+                    textField2.setText(String.valueOf(k));
+                }
 
-          double m = Double.parseDouble(U1.getText());
+                if (box1.equals("Metre") && box2.equals("Centimetre")) {
 
-          double c = (m/100);
-          U2.setText(String.valueOf(c));
-          }
+                    double m = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Metre") && box2.equals("Millimetre")){
+                    double c = (m / 100);
+                    textField2.setText(String.valueOf(c));
+                }
 
-          double m = Double.parseDouble(U1.getText());
+                if (box1.equals("Metre") && box2.equals("Millimetre")) {
 
-          double mm = (m*1000);
+                    double m = Double.parseDouble(textField1.getText());
 
-          U2.setText(String.valueOf(mm));
-          }
+                    double mm = (m * 1000);
 
-           if(box1.equals("Metre") && box2.equals("Decimetre"))
-       {
-           double m = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(mm));
+                }
 
-           double d = (m*10);
+                if (box1.equals("Metre") && box2.equals("Decimetre")) {
+                    double m = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(d));
-       }
+                    double d = (m * 10);
 
-           if(box1.equals("Metre") && box2.equals("Metre"))
-       {
-           double m = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(d));
+                }
 
-           U2.setText(String.valueOf(m));
-       }
+                if (box1.equals("Metre") && box2.equals("Metre")) {
+                    double m = Double.parseDouble(textField1.getText());
 
-           if(box1.equals("Metre") && box2.equals("Feet"))
-       {
-           double m = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(m));
+                }
 
-           double f = (m*3.28084);
+                if (box1.equals("Metre") && box2.equals("Feet")) {
+                    double m = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(f));
-       }
+                    double f = (m * 3.28084);
 
-           if(box1.equals("Metre") && box2.equals("Inch"))
-       {
-           double m = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(f));
+                }
 
-           double i = (m*39.3701);
+                if (box1.equals("Metre") && box2.equals("Inch")) {
+                    double m = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(i));
-       }
+                    double i = (m * 39.3701);
 
-        if(box1.equals("Kilometre") && box2.equals("Metre")){
+                    textField2.setText(String.valueOf(i));
+                }
 
-          double k = Double.parseDouble(U1.getText());
+                if (box1.equals("Kilometre") && box2.equals("Metre")) {
 
-          double m = (k*1000);
-          U2.setText(String.valueOf(m));
-          }
+                    double k = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Kilometre") && box2.equals("Centimetre")){
+                    double m = (k * 1000);
+                    textField2.setText(String.valueOf(m));
+                }
 
-          double k = Double.parseDouble(U1.getText());
+                if (box1.equals("Kilometre") && box2.equals("Centimetre")) {
 
-          double c = (k*100000);
-          U2.setText(String.valueOf(c));
-          }
+                    double k = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Kilometre") && box2.equals("Millimetre")){
+                    double c = (k * 100000);
+                    textField2.setText(String.valueOf(c));
+                }
 
-          double k = Double.parseDouble(U1.getText());
+                if (box1.equals("Kilometre") && box2.equals("Millimetre")) {
 
-          double mm = (k*1000000);
+                    double k = Double.parseDouble(textField1.getText());
 
-          U2.setText(String.valueOf(mm));
-          }
+                    double mm = (k * 1000000);
 
-           if(box1.equals("Kilometre") && box2.equals("Decimetre"))
-       {
-           double k = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(mm));
+                }
 
-           double d = (k*10000);
+                if (box1.equals("Kilometre") && box2.equals("Decimetre")) {
+                    double k = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(d));
-       }
+                    double d = (k * 10000);
 
-           if(box1.equals("Kilometre") && box2.equals("Kilometre"))
-       {
-           double k = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(d));
+                }
 
-           U2.setText(String.valueOf(k));
-       }
+                if (box1.equals("Kilometre") && box2.equals("Kilometre")) {
+                    double k = Double.parseDouble(textField1.getText());
 
-           if(box1.equals("Kilometre") && box2.equals("Feet"))
-       {
-           double k = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(k));
+                }
 
-           double f = (k*3280.84);
+                if (box1.equals("Kilometre") && box2.equals("Feet")) {
+                    double k = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(f));
-       }
+                    double f = (k * 3280.84);
 
-           if(box1.equals("Kilometre") && box2.equals("Inch"))
-       {
-           double k = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(f));
+                }
 
-           double i = (k*39370.1);
+                if (box1.equals("Kilometre") && box2.equals("Inch")) {
+                    double k = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(i));
-       }
+                    double i = (k * 39370.1);
 
-           if(box1.equals("Centimetre") && box2.equals("Kilometre")){
+                    textField2.setText(String.valueOf(i));
+                }
 
-          double c = Double.parseDouble(U1.getText());
+                if (box1.equals("Centimetre") && box2.equals("Kilometre")) {
 
-          double k = (c*0.00001);
-          U2.setText(String.valueOf(k));
-          }
+                    double c = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Centimetre") && box2.equals("Centimetre")){
+                    double k = (c * 0.00001);
+                    textField2.setText(String.valueOf(k));
+                }
 
-          double c = Double.parseDouble(U1.getText());
+                if (box1.equals("Centimetre") && box2.equals("Centimetre")) {
 
-          U2.setText(String.valueOf(c));
-          }
+                    double c = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Centimetre") && box2.equals("Millimetre")){
+                    textField2.setText(String.valueOf(c));
+                }
 
-          double c = Double.parseDouble(U1.getText());
+                if (box1.equals("Centimetre") && box2.equals("Millimetre")) {
 
-          double mm = (double)(c*10);
+                    double c = Double.parseDouble(textField1.getText());
 
-          U2.setText(String.valueOf(mm));
-          }
+                    double mm = (double) (c * 10);
 
-           if(box1.equals("Centimetre") && box2.equals("Decimetre"))
-       {
-           double c = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(mm));
+                }
 
-           double d = (double)(c*0.1);
+                if (box1.equals("Centimetre") && box2.equals("Decimetre")) {
+                    double c = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(d));
-       }
+                    double d = (double) (c * 0.1);
 
-           if(box1.equals("Centimetre") && box2.equals("Metre"))
-       {
-           double c = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(d));
+                }
 
-           double m = (double)(c*0.01);
+                if (box1.equals("Centimetre") && box2.equals("Metre")) {
+                    double c = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(m));
-       }
+                    double m = (double) (c * 0.01);
 
-           if(box1.equals("Centimetre") && box2.equals("Feet"))
-       {
-           double c = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(m));
+                }
 
-           double f = (double)(c*0.0328084);
+                if (box1.equals("Centimetre") && box2.equals("Feet")) {
+                    double c = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(f));
-       }
+                    double f = (double) (c * 0.0328084);
 
-           if(box1.equals("Centimetre") && box2.equals("Inch"))
-       {
-           double m = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(f));
+                }
 
-           double i = (double)(m*0.393701);
+                if (box1.equals("Centimetre") && box2.equals("Inch")) {
+                    double m = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(i));
-       }
+                    double i = (double) (m * 0.393701);
 
-           if(box1.equals("Decimetre") && box2.equals("Kilometre")){
+                    textField2.setText(String.valueOf(i));
+                }
 
-          double d = Double.parseDouble(U1.getText());
+                if (box1.equals("Decimetre") && box2.equals("Kilometre")) {
 
-          double k = (double)(d*0.0001);
-          U2.setText(String.valueOf(k));
-          }
+                    double d = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Decimetre") && box2.equals("Centimetre")){
+                    double k = (double) (d * 0.0001);
+                    textField2.setText(String.valueOf(k));
+                }
 
-          double d = Double.parseDouble(U1.getText());
+                if (box1.equals("Decimetre") && box2.equals("Centimetre")) {
 
-          double c = (double)(d*10);
-          U2.setText(String.valueOf(c));
-          }
+                    double d = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Decimetre") && box2.equals("Millimetre")){
+                    double c = (double) (d * 10);
+                    textField2.setText(String.valueOf(c));
+                }
 
-          double d = Double.parseDouble(U1.getText());
+                if (box1.equals("Decimetre") && box2.equals("Millimetre")) {
 
-          double mm = (double)(d*100);
+                    double d = Double.parseDouble(textField1.getText());
 
-          U2.setText(String.valueOf(mm));
-          }
+                    double mm = (double) (d * 100);
 
-           if(box1.equals("Decimetre") && box2.equals("Decimetre"))
-       {
-           double d = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(mm));
+                }
 
-           U2.setText(String.valueOf(d));
-       }
+                if (box1.equals("Decimetre") && box2.equals("Decimetre")) {
+                    double d = Double.parseDouble(textField1.getText());
 
-           if(box1.equals("Decimetre") && box2.equals("Metre"))
-       {
-           double d = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(d));
+                }
 
-           double m = (double)(d*0.1);
+                if (box1.equals("Decimetre") && box2.equals("Metre")) {
+                    double d = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(m));
-       }
+                    double m = (double) (d * 0.1);
 
-           if(box1.equals("Decimetre") && box2.equals("Feet"))
-       {
-           double d = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(m));
+                }
 
-           double f = (double)(d*0.328084);
+                if (box1.equals("Decimetre") && box2.equals("Feet")) {
+                    double d = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(f));
-       }
+                    double f = (double) (d * 0.328084);
 
-           if(box1.equals("Decimetre") && box2.equals("Inch"))
-       {
-           double d = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(f));
+                }
 
-           double i = (double)(d*3.93701);
+                if (box1.equals("Decimetre") && box2.equals("Inch")) {
+                    double d = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(i));
-       }
+                    double i = (double) (d * 3.93701);
 
-         if(box1.equals("Millimetre") && box2.equals("Kilometre")){
+                    textField2.setText(String.valueOf(i));
+                }
 
-          double mm = Double.parseDouble(U1.getText());
+                if (box1.equals("Millimetre") && box2.equals("Kilometre")) {
 
-          double k = (mm*0.000001);
-          U2.setText(String.valueOf(k));
-          }
+                    double mm = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Millimetre") && box2.equals("Centimetre")){
+                    double k = (mm * 0.000001);
+                    textField2.setText(String.valueOf(k));
+                }
 
-          double mm = Double.parseDouble(U1.getText());
+                if (box1.equals("Millimetre") && box2.equals("Centimetre")) {
 
-          double c = (double)(mm*0.1);
-          U2.setText(String.valueOf(c));
-          }
+                    double mm = Double.parseDouble(textField1.getText());
 
-          if(box1.equals("Millimetre") && box2.equals("Millimetre")){
+                    double c = (double) (mm * 0.1);
+                    textField2.setText(String.valueOf(c));
+                }
 
-          double mm = Double.parseDouble(U1.getText());
+                if (box1.equals("Millimetre") && box2.equals("Millimetre")) {
 
-          U2.setText(String.valueOf(mm));
-          }
+                    double mm = Double.parseDouble(textField1.getText());
 
-           if(box1.equals("Millimetre") && box2.equals("Decimetre"))
-       {
-           double mm = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(mm));
+                }
 
-           double d = (double)(mm*0.01);
+                if (box1.equals("Millimetre") && box2.equals("Decimetre")) {
+                    double mm = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(d));
-       }
+                    double d = (double) (mm * 0.01);
 
-           if(box1.equals("Millimetre") && box2.equals("Metre"))
-       {
-           double mm = Double.parseDouble(U1.getText());
-           double m = (double)(mm*0.001);
+                    textField2.setText(String.valueOf(d));
+                }
 
-           U2.setText(String.valueOf(m));
-       }
+                if (box1.equals("Millimetre") && box2.equals("Metre")) {
+                    double mm = Double.parseDouble(textField1.getText());
+                    double m = (double) (mm * 0.001);
 
-           if(box1.equals("Millimetre") && box2.equals("Feet"))
-       {
-           double mm = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(m));
+                }
 
-           double f = (double)(mm*0.00328084);
+                if (box1.equals("Millimetre") && box2.equals("Feet")) {
+                    double mm = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(f));
-       }
+                    double f = (double) (mm * 0.00328084);
 
-           if(box1.equals("Millimetre") && box2.equals("Inch"))
-       {
-           double mm = Double.parseDouble(U1.getText());
+                    textField2.setText(String.valueOf(f));
+                }
 
-           double i = (double)(mm*0.0393701);
+                if (box1.equals("Millimetre") && box2.equals("Inch")) {
+                    double mm = Double.parseDouble(textField1.getText());
 
-           U2.setText(String.valueOf(i));
-       }
+                    double i = (double) (mm * 0.0393701);
 
+                    textField2.setText(String.valueOf(i));
+                }
 
+
+            }catch (Exception ex)
+            {
+                textField2.setText("Invalid");
+            }
         }
 
     });
 
 
-     clr.addActionListener(new ActionListener(){
+     clear.addActionListener(new ActionListener(){
 
         public void actionPerformed(ActionEvent e){
 
-         U1.setText("");
-         U2.setText("");
+         textField1.setText("");
+         textField2.setText("");
 
           }
 

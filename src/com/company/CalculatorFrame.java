@@ -31,9 +31,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         panel.add(label);
         panel.setBackground(Color.lightGray);
 
-        //label two
         label2 = new JLabel();
-
         label2.setBounds(10, 85, 341, 35);
         label2.setFont(new Font("Calibri", Font.BOLD,30));
         label2.setHorizontalAlignment(JLabel.RIGHT);
@@ -119,7 +117,6 @@ public class CalculatorFrame extends JFrame implements ActionListener {
 
         buttonTri = new JButton("<html>Triangle<br />Area</html>");
         buttonTri.setBounds(93, 196, 89, 60);
-        buttonTri.addActionListener(this);
         panel.add(buttonTri);
 
         buttonPro = new JButton("x");
@@ -134,23 +131,21 @@ public class CalculatorFrame extends JFrame implements ActionListener {
 
         buttonTemp = new JButton("<html>Temp.<br />Converter</html>");
         buttonTemp.setBounds(183,196,89,60);
-        buttonTemp.addActionListener(this);
         panel.add(buttonTemp);
 
         buttonUnit = new JButton("<html>Unit<br />Converter</html>");
         buttonUnit.setBounds(3,196,89,60);
-        buttonUnit.addActionListener(this);
         panel.add(buttonUnit);
 
         buttonUnit.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
 
-                UnitConvert Uframe = new UnitConvert();
-                Uframe.setVisible(true);
-                Uframe.setLocation(950, 100);
-                Uframe.setSize(381, 541);
-                Uframe.setTitle("Unit Conversion");
+                UnitConvert uFrame = new UnitConvert();
+                uFrame.setVisible(true);
+                uFrame.setLocation(950, 100);
+                uFrame.setSize(381, 541);
+                uFrame.setTitle("Unit Conversion");
             }
         });
 
@@ -168,16 +163,15 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         buttonTri.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
-                Triangle Tframe = new Triangle();
-                Tframe.setVisible(true);
-                Tframe.setLocation(950, 100);
-                Tframe.setSize(381, 541);
-                Tframe.setTitle("Triangle Area");
+                Triangle tFrame = new Triangle();
+                tFrame.setVisible(true);
+                tFrame.setLocation(950, 100);
+                tFrame.setSize(381, 541);
+                tFrame.setTitle("Triangle Area");
             }
         });
 
         this.add(panel);
-        //pack();
         setResizable(false);
 
     }

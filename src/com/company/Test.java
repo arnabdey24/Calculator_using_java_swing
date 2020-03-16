@@ -16,8 +16,17 @@ public class Test {
             }
             if (index==-1)
                 break;
-            float num1=Float.parseFloat(w[index-1]);
-            float num2=Float.parseFloat(w[index+1]);
+            float num1,num2;
+            try {
+                 num1 = Float.parseFloat(w[index - 1]);
+                 num2 = Float.parseFloat(w[index + 1]);
+            }catch (NumberFormatException e)
+            {
+                return "Invalid";
+            }catch (ArrayIndexOutOfBoundsException e)
+            {
+                return "Invalid";
+            }
             float result=0;
             switch (w[index]) {
                 case "+":
