@@ -1,4 +1,4 @@
-package com.company;
+package com.proCalculator;
 
 public class Test {
     public static String evaluate(String s){
@@ -8,9 +8,9 @@ public class Test {
             int index=-1;
             int tmpPre=1;
             for (int i = 0; i < w.length; i++) {
-                if (pre(w[i])>tmpPre)
+                if (precedence(w[i])>tmpPre)
                 {
-                    tmpPre=pre(w[i]);
+                    tmpPre= precedence(w[i]);
                     index=i;
                 }
             }
@@ -50,13 +50,11 @@ public class Test {
             for (int i = index+2; i < w.length; i++) {
                 s+=w[i].toString()+" ";
             }
-
-
         }
         return s;
     }
 
-    public static int pre(String s){
+    public static int precedence(String s){
         if (s.equals("+") || s.equals("-"))
             return 2;
         else if (s.equals("*") || s.equals("/"))

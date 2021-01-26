@@ -1,5 +1,5 @@
 
-package com.company;
+package com.proCalculator;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -37,14 +37,14 @@ public class Conversion extends JFrame{
     comboBox.setBounds(230, 100, 89, 60);
     comboBox.addItem("None");
     comboBox.addItem("Fahrenheit");
-    comboBox.addItem("Celcius");
+    comboBox.addItem("Celsius");
     comboBox.addItem("Kelvin");
     container.add(comboBox);
 
     comboBox1 = new JComboBox();
     comboBox1.setBounds(230, 165, 89, 60);
     comboBox1.addItem("None");
-    comboBox1.addItem("Celcius");
+    comboBox1.addItem("Celsius");
     comboBox1.addItem("Fahrenheit");
     comboBox1.addItem("Kelvin");
     container.add(comboBox1);
@@ -72,7 +72,7 @@ public class Conversion extends JFrame{
                     buttonConvert.setToolTipText("Invalid");
                 }
 
-                if (str1.equals("Celcius") && str2.equals("Fahrenheit")) {
+                if (str1.equals("Celsius") && str2.equals("Fahrenheit")) {
 
                     double c = Double.parseDouble(field2.getText());
 
@@ -80,7 +80,7 @@ public class Conversion extends JFrame{
                     field3.setText(String.valueOf(f));
                 }
 
-                if (str1.equals("Celcius") && str2.equals("Kelvin")) {
+                if (str1.equals("Celsius") && str2.equals("Kelvin")) {
 
                     double c = Double.parseDouble(field2.getText());
 
@@ -88,13 +88,13 @@ public class Conversion extends JFrame{
                     field3.setText(String.valueOf(k));
                 }
 
-                if (str1.equals("Celcius") && str2.equals("Celcius")) {
+                if (str1.equals("Celsius") && str2.equals("Celsius")) {
 
                     double c = Double.parseDouble(field2.getText());
                     field3.setText(String.valueOf(c));
                 }
 
-                if (str1.equals("Fahrenheit") && str2.equals("Celcius")) {
+                if (str1.equals("Fahrenheit") && str2.equals("Celsius")) {
                     double f = Double.parseDouble(field2.getText());
 
                     double c = ((f - 32) * 5 / 9);
@@ -116,7 +116,7 @@ public class Conversion extends JFrame{
                     field3.setText(String.valueOf(f));
                 }
 
-                if (str1.equals("Kelvin") && str2.equals("Celcius")) {
+                if (str1.equals("Kelvin") && str2.equals("Celsius")) {
                     double k = Double.parseDouble(field2.getText());
 
                     double c = (k * 1 - 273.15);

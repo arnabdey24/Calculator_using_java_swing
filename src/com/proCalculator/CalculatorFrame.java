@@ -1,4 +1,4 @@
-package com.company;
+package com.proCalculator;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package com.company;
+package com.proCalculator;
 
 public class Main {
 
