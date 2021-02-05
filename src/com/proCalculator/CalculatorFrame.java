@@ -12,8 +12,15 @@ public class CalculatorFrame extends JFrame implements ActionListener {
     private JPanel panel;
     private JLabel label,label2;
 
+    private Minimization minimization;
+    private Evaluation evaluation;
+
     public CalculatorFrame(String title) {
         super(title);
+
+        minimization=new Minimization();
+        evaluation=new Evaluation();
+
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(950, 100);
@@ -263,7 +270,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     label.setText(label.getText() + buttonPlus.getText());
                     if (exp.isBlank())
                         exp = "";
-                    else if (exp.endsWith(" * ") || exp.endsWith(" / "))
+                    else if (exp.endsWith(" * ") || exp.endsWith(" / ") || exp.endsWith(" - ") || exp.endsWith(" + "))
                         exp = exp + buttonPlus.getText();       //e.g.,( 1 * -2 ) here -2 is a number (-) is not a operation here,so space gap is not needed
                     else
                         exp = exp + " " + buttonPlus.getText() + " ";  //we need to to take space gap both side here , so that we can split the expression in time of evaluation
@@ -272,11 +279,11 @@ public class CalculatorFrame extends JFrame implements ActionListener {
             case "-":
                 if(count<31) {
                     count++;
-                    label.setText(label.getText() + buttonMinus.getText());                             //
-                    if (exp.isBlank())                                                                 //
-                        exp = buttonMinus.getText();                                                  //  we did same thing as for (+)
-                    else if (exp.endsWith(" * ") || exp.endsWith(" / ") || exp.endsWith(" + ")) {    //
-                        exp = exp + buttonMinus.getText();                                          //
+                    label.setText(label.getText() + buttonMinus.getText());                                                    //
+                    if (exp.isBlank())                                                                                        //
+                        exp = buttonMinus.getText();                                                                         //  we did same thing as for (+)
+                    else if (exp.endsWith(" * ") || exp.endsWith(" / ") || exp.endsWith(" + ") || exp.endsWith(" - ")) {    //
+                        exp = exp + buttonMinus.getText();                                                                 //
                     } else
                         exp = exp + " " + buttonMinus.getText() + " ";
                 }
@@ -297,9 +304,9 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 break;
             case "=":
                 System.out.println(exp);
-                String ans = Test.evaluate(exp);        // evaluate the expression
+                String ans = evaluation.evaluate(exp);        // evaluate the expression
 
-                ans=Test.minimization(ans);             // did minimization e.g., 2.000 will be now 2
+                ans=minimization.getMinimizedValue(ans);             // did minimization e.g., 2.000 will be now 2
 
                 System.out.println(ans);
                 label2.setText(ans);
