@@ -55,7 +55,6 @@ public class Test {
         }
         return s;
     }
-
     private static int precedence(String s){
         switch (s) {
             case "-":

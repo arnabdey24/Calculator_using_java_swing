@@ -13,7 +13,7 @@ public class Conversion extends JFrame{
     private JButton buttonConvert, clear;
     
     Conversion(){
-    components();
+        components();
     }
 
     public void components()

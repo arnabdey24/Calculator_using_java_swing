@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 public class CalculatorFrame extends JFrame implements ActionListener {
 
-
     private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonUnit,buttonTemp,
             buttonPlus,buttonMinus,buttonDiv,buttonMultiple,buttonDot,buttonEqual ,buttonClear, buttonTri;
     private JPanel panel;
@@ -273,11 +272,11 @@ public class CalculatorFrame extends JFrame implements ActionListener {
             case "-":
                 if(count<31) {
                     count++;
-                    label.setText(label.getText() + buttonMinus.getText());   //
-                    if (exp.isBlank())                                        //
-                        exp = buttonMinus.getText();                          //  we did same thing as for (+)
-                    else if (exp.endsWith(" * ") || exp.endsWith(" / ")) {    //
-                        exp = exp + buttonMinus.getText();                    //
+                    label.setText(label.getText() + buttonMinus.getText());                             //
+                    if (exp.isBlank())                                                                 //
+                        exp = buttonMinus.getText();                                                  //  we did same thing as for (+)
+                    else if (exp.endsWith(" * ") || exp.endsWith(" / ") || exp.endsWith(" + ")) {    //
+                        exp = exp + buttonMinus.getText();                                          //
                     } else
                         exp = exp + " " + buttonMinus.getText() + " ";
                 }

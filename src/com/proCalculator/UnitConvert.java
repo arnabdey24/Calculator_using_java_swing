@@ -17,7 +17,7 @@ public class UnitConvert extends JFrame{
     private JComboBox comboBox1, comboBox2;
     
     UnitConvert(){
-    components3();
+        components3();
     }
 
 

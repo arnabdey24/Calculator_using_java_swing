@@ -18,7 +18,7 @@ public class Triangle extends JFrame{
     
     
     Triangle(){
-    components2();
+        components2();
     }
     
     public void components2(){
