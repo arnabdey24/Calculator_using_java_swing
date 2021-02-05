@@ -84,8 +84,4 @@ public class Test {
             return "Invalid";
         }
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> e59a423748b84dfc0aaa453502004049310e0e79
 }
