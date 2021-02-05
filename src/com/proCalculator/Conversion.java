@@ -6,19 +6,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class Conversion extends JFrame{
+public class Conversion extends JFrame {
     private Container container;
     private JTextField field2, field3;
     private JComboBox comboBox, comboBox1;
     private JButton buttonConvert, clear;
-    
-    Conversion(){
+
+    Conversion() {
         components();
     }
 
-    public void components()
-    {
-        container =this.getContentPane();
+    public void components() {
+        container = this.getContentPane();
         container.setLayout(null);
         container.setBackground(Color.lightGray);
 
@@ -26,8 +25,9 @@ public class Conversion extends JFrame{
         field2.setBounds(20, 100, 200, 60);
         container.add(field2);
 
-        field3 = new  JTextField();
+        field3 = new JTextField();
         field3.setBounds(20, 165, 200, 60);
+        field3.setEditable(false);
         container.add(field3);
 
         comboBox = new JComboBox();
@@ -55,92 +55,45 @@ public class Conversion extends JFrame{
         container.add(clear);
 
 
-        buttonConvert.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e) {
+        buttonConvert.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 
-            try {
+                try {
 
-                String str1 = (String) comboBox.getSelectedItem();
-                String str2 = (String) comboBox1.getSelectedItem();
+                    String selected1 = (String) comboBox.getSelectedItem();
+                    String selected2 = (String) comboBox1.getSelectedItem();
 
-                if (field2.getText() == null && field3.getText() == null) {
-                    buttonConvert.setToolTipText("Invalid");
+                    if (field2.getText() == null && field3.getText() == null) {
+                        buttonConvert.setToolTipText("Invalid");
+                        field3.setText("Invalid");
+                    } else if (selected1.equals("None") || selected2.equals("None")) {
+                        buttonConvert.setToolTipText("Invalid");
+                        field3.setText("Invalid");
+                    } else {
+
+                        double value = Double.parseDouble(field2.getText());
+                        if (selected1.equals("Fahrenheit")) value = ((value - 32) * 5 / 9);
+                        else if (selected1.equals("Kelvin")) value = (value * 1 - 273.15);
+
+                        if (selected2.equals("Fahrenheit")) value = (value * 1.8 + 32);
+                        else if (selected2.equals("Kelvin")) value = (value + 273.15);
+
+                        field3.setText(String.valueOf(value));
+                    }
+
+                } catch (Exception ex) {
+                    field3.setText("Invalid");
                 }
-
-                if (str1.equals("Celsius") && str2.equals("Fahrenheit")) {
-
-                    double c = Double.parseDouble(field2.getText());
-                    double f = (c * 1.8 + 32);
-                    field3.setText(String.valueOf(f));
-                }
-
-                if (str1.equals("Celsius") && str2.equals("Kelvin")) {
-
-                    double c = Double.parseDouble(field2.getText());
-                    double k = (c + 273.15);
-                    field3.setText(String.valueOf(k));
-                }
-
-                if (str1.equals("Celsius") && str2.equals("Celsius")) {
-
-                    double c = Double.parseDouble(field2.getText());
-                    field3.setText(String.valueOf(c));
-                }
-
-                if (str1.equals("Fahrenheit") && str2.equals("Celsius")) {
-
-                    double f = Double.parseDouble(field2.getText());
-                    double c = ((f - 32) * 5 / 9);
-                    field3.setText(String.valueOf(c));
-                }
-
-                if (str1.equals("Fahrenheit") && str2.equals("Kelvin")) {
-
-                    double f = Double.parseDouble(field2.getText());
-                    double k = (((f - 32) * 5 / 9) + 273.15);
-                    field3.setText(String.valueOf(k));
-                }
-
-                if (str1.equals("Fahrenheit") && str2.equals("Fahrenheit")) {
-
-                    double f = Double.parseDouble(field2.getText());
-                    field3.setText(String.valueOf(f));
-                }
-
-                if (str1.equals("Kelvin") && str2.equals("Celsius")) {
-
-                    double k = Double.parseDouble(field2.getText());
-                    double c = (k * 1 - 273.15);
-                    field3.setText(String.valueOf(c));
-                }
-                if (str1.equals("Kelvin") && str2.equals("Fahrenheit")) {
-
-                    double k = Double.parseDouble(field2.getText());
-                    double f = (k * 10 - 273.15) * 9 / 5 + 32;
-                    field3.setText(String.valueOf(f));
-                }
-                if (str1.equals("Kelvin") && str2.equals("Kelvin")) {
-
-                    double k = Double.parseDouble(field2.getText());
-                    field3.setText(String.valueOf(k));
-                }
-
-
-            }catch (Exception ex)
-            {
-                field3.setText("Invalid");
             }
-        }
 
-    });
+        });
 
-    clear.addActionListener(new ActionListener(){
+        clear.addActionListener(new ActionListener() {
 
-        public void actionPerformed(ActionEvent e)
-        {
-         field2.setText("");
-         field3.setText("");
-        }
-    });
+            public void actionPerformed(ActionEvent e) {
+                field2.setText("");
+                field3.setText("");
+            }
+        });
     }
 }
