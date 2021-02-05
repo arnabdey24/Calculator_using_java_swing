@@ -9,7 +9,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
 
 
     private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonUnit,buttonTemp,
-            buttonPlus,buttonMinus,buttonDiv,buttonPro,buttonDot,buttonEqual ,buttonClear, buttonTri;
+            buttonPlus,buttonMinus,buttonDiv,buttonMultiple,buttonDot,buttonEqual ,buttonClear, buttonTri;
     private JPanel panel;
     private JLabel label,label2;
 
@@ -25,20 +25,17 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         panel.setSize(381, 541);
 
         label = new JLabel();
-
-        label.setBounds(10, 30, 350, 35);
+        label.setBounds(10, 50, 350, 35);
         label.setFont(new Font("Calibri", Font.BOLD,20));
         panel.add(label);
         panel.setBackground(Color.lightGray);
 
         label2 = new JLabel();
-        label2.setBounds(10, 85, 341, 35);
+        label2.setBounds(10, 135, 341, 35);
         label2.setFont(new Font("Calibri", Font.BOLD,30));
         label2.setHorizontalAlignment(JLabel.RIGHT);
         panel.add(label2);
         panel.setBackground(Color.lightGray);
-
-
 
         buttonClear = new JButton("C");
         buttonClear.setBounds(3, 440, 89, 60);
@@ -119,10 +116,10 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         buttonTri.setBounds(93, 196, 89, 60);
         panel.add(buttonTri);
 
-        buttonPro = new JButton("x");
-        buttonPro.setBounds(273, 257, 89, 60);
-        buttonPro.addActionListener(this);
-        panel.add(buttonPro);
+        buttonMultiple = new JButton("x");
+        buttonMultiple.setBounds(273, 257, 89, 60);
+        buttonMultiple.addActionListener(this);
+        panel.add(buttonMultiple);
 
         buttonDiv = new JButton("/");
         buttonDiv.setBounds(273,196,89,60);
@@ -175,10 +172,11 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         setResizable(false);
 
     }
+
     int count=0;
     private String exp="";
     boolean answered=false;
-        public void actionPerformed(ActionEvent actionevent){
+    public void actionPerformed(ActionEvent actionevent){
              count++;
             if(answered){
                 label.setText("");
@@ -277,7 +275,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     break;
                 case "x":
                     if(count<30) {
-                        label.setText(label.getText() + buttonPro.getText());
+                        label.setText(label.getText() + buttonMultiple.getText());
                         exp = exp + " " + "*" + " ";
                     }
                     break;
