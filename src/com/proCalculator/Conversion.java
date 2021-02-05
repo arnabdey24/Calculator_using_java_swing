@@ -1,4 +1,3 @@
-
 package com.proCalculator;
 
 import java.awt.Color;

@@ -1,5 +1,12 @@
 package com.proCalculator;
-
+/*
+*
+*
+*       This class is the implementation of in-fix expression evaluation
+*       We set precedence in a way that it go with the "B.O.D.M.A.S" rule
+*
+*
+*/
 public class Test {
     public static String evaluate(String s){
         boolean flag=true;
@@ -8,8 +15,7 @@ public class Test {
             int index=-1;
             int tmpPre=1;
             for (int i = 0; i < w.length; i++) {
-                if (precedence(w[i])>tmpPre)
-                {
+                if (precedence(w[i])>tmpPre) {
                     tmpPre= precedence(w[i]);
                     index=i;
                 }
@@ -20,11 +26,7 @@ public class Test {
             try {
                  num1 = Float.parseFloat(w[index - 1]);
                  num2 = Float.parseFloat(w[index + 1]);
-            }catch (NumberFormatException e)
-            {
-                return "Invalid";
-            }catch (ArrayIndexOutOfBoundsException e)
-            {
+            }catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
                 return "Invalid";
             }
             float result=0;
@@ -54,13 +56,19 @@ public class Test {
         return s;
     }
 
-    public static int precedence(String s){
-        if (s.equals("+") || s.equals("-"))
-            return 2;
-        else if (s.equals("*") || s.equals("/"))
-            return 3;
-        else
-            return 0;
+    private static int precedence(String s){
+        switch (s) {
+            case "-":
+                return 2;
+            case "+":
+                return 3;
+            case "*":
+                return 4;
+            case "/":
+                return 5;
+            default:
+                return 0;
+        }
     }
 
     public static String minimization(String ans) {
@@ -76,8 +84,5 @@ public class Test {
             return "Invalid";
         }
     }
-
-
-
 
 }
