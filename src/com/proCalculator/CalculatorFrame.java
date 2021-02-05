@@ -135,9 +135,8 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         panel.add(buttonUnit);
 
         buttonUnit.addActionListener(new ActionListener(){
-
-            public void actionPerformed(ActionEvent e){
-
+        public void actionPerformed(ActionEvent e)
+            {
                 UnitConvert uFrame = new UnitConvert();
                 uFrame.setVisible(true);
                 uFrame.setLocation(950, 100);
@@ -147,8 +146,8 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         });
 
         buttonTemp.addActionListener(new ActionListener(){
-
-            public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e)
+            {
                 Conversion frame1 = new Conversion();
                 frame1.setVisible(true);
                 frame1.setLocation(950, 100);
@@ -158,8 +157,8 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         });
 
         buttonTri.addActionListener(new ActionListener(){
-
-            public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e)
+            {
                 Triangle tFrame = new Triangle();
                 tFrame.setVisible(true);
                 tFrame.setLocation(950, 100);

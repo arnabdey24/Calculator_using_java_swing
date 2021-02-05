@@ -60,39 +60,28 @@ public class Triangle extends JFrame{
         container2.add(label3);
         
          clearButton.addActionListener(new ActionListener(){
-    
-        public void actionPerformed(ActionEvent e){
-        
-         base.setText("");
-         height.setText("");
-         area.setText("");
-          
-          }
-
+         public void actionPerformed(ActionEvent e)
+         {
+            base.setText("");
+            height.setText("");
+            area.setText("");
+         }
     });
-         
+
          areaButton.addActionListener(new ActionListener(){
-    
-        public void actionPerformed(ActionEvent e){
+         public void actionPerformed(ActionEvent e){
+
             try {
-
                 double n = Double.parseDouble(base.getText());
-
                 double s = Double.parseDouble(height.getText());
-
                 double a = (0.5 * (n * s));
-
                 area.setText(String.valueOf(a));
             }
-
             catch (Exception ex)
             {
                 area.setText("Invalid");
             }
-          
           }
-    
     });
-    
     }
 }
