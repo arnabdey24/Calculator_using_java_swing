@@ -1,5 +1,5 @@
 # Calculator Pro
-This calculator calculate an expression using polish notation algorithm. A simple calculator with basic functionalities like summation, multiplication, subtraction, division etc. This calculator also offers some extra features like convertion of basic units, temperature and finding the area of a triangle etc.
+This calculator calculates an expression using polish notation algorithm. A simple calculator with basic functionalities like summation, multiplication, subtraction, division etc. This calculator also offers some extra features like convertion of basic units, temperature and finding the area of a triangle etc.
 
 ![Picture1](https://user-images.githubusercontent.com/61958899/107021279-2238be00-67ce-11eb-974a-08dd6aa214fe.png)
 
