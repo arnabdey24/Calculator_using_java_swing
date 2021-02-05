@@ -9,7 +9,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
 
 
     private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonUnit,buttonTemp,
-            buttonPlus,buttonMinus,buttonDiv,buttonPro,buttonDot,buttonEqual ,buttonClear, buttonTri;
+            buttonPlus,buttonMinus,buttonDiv,buttonMultiple,buttonDot,buttonEqual ,buttonClear, buttonTri;
     private JPanel panel;
     private JLabel label,label2;
 
@@ -25,14 +25,13 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         panel.setSize(381, 541);
 
         label = new JLabel();
-
-        label.setBounds(10, 30, 350, 35);
+        label.setBounds(10, 50, 350, 35);
         label.setFont(new Font("Calibri", Font.BOLD,20));
         panel.add(label);
         panel.setBackground(Color.lightGray);
 
         label2 = new JLabel();
-        label2.setBounds(10, 85, 341, 35);
+        label2.setBounds(10, 135, 341, 35);
         label2.setFont(new Font("Calibri", Font.BOLD,30));
         label2.setHorizontalAlignment(JLabel.RIGHT);
         panel.add(label2);
@@ -117,10 +116,10 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         buttonTri.setBounds(93, 196, 89, 60);
         panel.add(buttonTri);
 
-        buttonPro = new JButton("x");
-        buttonPro.setBounds(273, 257, 89, 60);
-        buttonPro.addActionListener(this);
-        panel.add(buttonPro);
+        buttonMultiple = new JButton("x");
+        buttonMultiple.setBounds(273, 257, 89, 60);
+        buttonMultiple.addActionListener(this);
+        panel.add(buttonMultiple);
 
         buttonDiv = new JButton("/");
         buttonDiv.setBounds(273,196,89,60);
@@ -136,9 +135,8 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         panel.add(buttonUnit);
 
         buttonUnit.addActionListener(new ActionListener(){
-
-            public void actionPerformed(ActionEvent e){
-
+        public void actionPerformed(ActionEvent e)
+            {
                 UnitConvert uFrame = new UnitConvert();
                 uFrame.setVisible(true);
                 uFrame.setLocation(950, 100);
@@ -148,8 +146,8 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         });
 
         buttonTemp.addActionListener(new ActionListener(){
-
-            public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e)
+            {
                 Conversion frame1 = new Conversion();
                 frame1.setVisible(true);
                 frame1.setLocation(950, 100);
@@ -159,8 +157,8 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         });
 
         buttonTri.addActionListener(new ActionListener(){
-
-            public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e)
+            {
                 Triangle tFrame = new Triangle();
                 tFrame.setVisible(true);
                 tFrame.setLocation(950, 100);
@@ -171,10 +169,12 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         this.add(panel);
         setResizable(false);
     }
+
     int count=0;
     private String exp="";
     boolean answered=false;
     public void actionPerformed(ActionEvent actionevent){
+<<<<<<< HEAD
         if(answered){              //
             label.setText("");     //  if it already answered, we need to remove the old expression first which is displayed
             label2.setText("");    //
@@ -315,6 +315,136 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 exp="";
                 count=0;
                 break;
+=======
+             count++;
+            if(answered){
+                label.setText("");
+                label2.setText("");
+                answered=false;
+            }
+            String str = actionevent.getActionCommand();
+            switch (str) {
+                case "1":
+                    if(count<32) {
+                        label.setText(label.getText() + button1.getText());
+                        exp = exp + button1.getText();
+                    }
+                    break;
+                case "2":
+                    if(count<32) {
+                        label.setText(label.getText() + button2.getText());
+                        exp = exp + button2.getText();
+                    }
+                    break;
+                case "3":
+                    if(count<32) {
+                        label.setText(label.getText() + button3.getText());
+                        exp = exp + button3.getText();
+                    }
+                    break;
+                case "4":
+                    if(count<32) {
+                        label.setText(label.getText() + button4.getText());
+                        exp = exp + button4.getText();
+                    }
+                    break;
+                case "5":
+                    if(count<32) {
+                        label.setText(label.getText() + button5.getText());
+                        exp = exp + button5.getText();
+                    }
+                    break;
+                case "6":
+                    if(count<32) {
+                        label.setText(label.getText() + button6.getText());
+                        exp = exp + button6.getText();
+                    }
+                    break;
+                case "7":
+                    if(count<32) {
+                        label.setText(label.getText() + button7.getText());
+                        exp = exp + button7.getText();
+                    }
+                    break;
+                case "8":
+                    if(count<32) {
+                        label.setText(label.getText() + button8.getText());
+                        exp = exp + button8.getText();
+                    }
+                    break;
+                case "9":
+                    if(count<32) {
+                        label.setText(label.getText() + button9.getText());
+                        exp = exp + button9.getText();
+                    }
+                    break;
+                case "0":
+                    if(count<32) {
+                        label.setText(label.getText() + button0.getText());
+                        exp = exp + button0.getText();
+                    }
+                    break;
+                case ".":
+                    if(count<32) {
+                        label.setText(label.getText() + buttonDot.getText());
+                        exp = exp + buttonDot.getText();
+                    }
+                    break;
+                case "+":
+                    if(count<30) {
+                        label.setText(label.getText() + buttonPlus.getText());
+                        if (exp.isBlank())
+                            exp = "";
+                        else if (exp.endsWith(" * ") || exp.endsWith(" / "))
+                            exp = exp + buttonPlus.getText();
+                        else
+                            exp = exp + " " + buttonPlus.getText() + " ";
+                    }
+                    break;
+                case "-":
+                    if(count<30) {
+                        label.setText(label.getText() + buttonMinus.getText());
+                        if (exp.isBlank())
+                            exp = buttonMinus.getText();
+                        else if (exp.endsWith(" * ") || exp.endsWith(" / ")) {
+                            exp = exp + buttonMinus.getText();
+                        } else
+                            exp = exp + " " + buttonMinus.getText() + " ";
+                    }
+                    break;
+                case "x":
+                    if(count<30) {
+                        label.setText(label.getText() + buttonMultiple.getText());
+                        exp = exp + " " + "*" + " ";
+                    }
+                    break;
+                case "/":
+                    if(count<30) {
+                        label.setText(label.getText() + buttonDiv.getText());
+                        exp = exp + " " + buttonDiv.getText() + " ";
+                    }
+                    break;
+                case "=":
+                    System.out.println(exp);
+                    String ans = Test.evaluate(exp);
+
+                    ans=Test.minimization(ans);
+
+                    System.out.println(ans);
+                    label2.setText(ans);
+                    exp="";
+                    answered=true;
+                    count=0;
+                    break;
+                case "C":
+                    label.setText("");
+                    label2.setText("");
+                    exp="";
+                    count=0;
+                    break;
+            }
+
+>>>>>>> e59a423748b84dfc0aaa453502004049310e0e79
         }
 
     }

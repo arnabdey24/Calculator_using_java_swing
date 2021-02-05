@@ -48,11 +48,11 @@ public class Triangle extends JFrame{
         container2.add(clearButton);
         
         label1 = new JLabel("Base: ");
-        label1.setBounds(20, 40, 80, 40);
+        label1.setBounds(20, 50, 80, 40);
         container2.add(label1);
         
         label2 = new JLabel("Height: ");
-        label2.setBounds(20, 140, 80, 40);
+        label2.setBounds(20, 150, 80, 40);
         container2.add(label2);
         
         label3 = new JLabel("Area: ");
@@ -60,42 +60,28 @@ public class Triangle extends JFrame{
         container2.add(label3);
         
          clearButton.addActionListener(new ActionListener(){
-    
-        public void actionPerformed(ActionEvent e){
-        
-         base.setText("");
-         height.setText("");
-         area.setText("");
-          
-          }
-        
-        
-    
+         public void actionPerformed(ActionEvent e)
+         {
+            base.setText("");
+            height.setText("");
+            area.setText("");
+         }
     });
-         
+
          areaButton.addActionListener(new ActionListener(){
-    
-        public void actionPerformed(ActionEvent e){
+         public void actionPerformed(ActionEvent e){
+
             try {
-
                 double n = Double.parseDouble(base.getText());
-
                 double s = Double.parseDouble(height.getText());
-
                 double a = (0.5 * (n * s));
-
-
                 area.setText(String.valueOf(a));
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 area.setText("Invalid");
             }
-          
           }
-        
-        
-    
     });
-    
     }
 }
