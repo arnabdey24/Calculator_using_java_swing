@@ -11,10 +11,10 @@ import javax.swing.JTextField;
 
 public class Triangle extends JFrame{
     
-    private Container container2;
-    private JTextField base, height, area;
-    private JButton areaButton, clearButton;
-    private JLabel label1, label2, label3;
+     Container container2;
+     JTextField base, height, area;
+     JButton areaButton, clearButton;
+     JLabel label1, label2, label3;
     
     
     Triangle(){
