@@ -40,10 +40,14 @@ public class Curency extends CommonFrame
                     int obj1 = comboBox1.getSelectedIndex();
                     int obj2 = comboBox2.getSelectedIndex();
 
+
                         if (obj1 == obj2) {
                             String sameCurrency = "Same Currency";
                             textField2.setText(sameCurrency);
-                        } else {
+                        } else if(Value<0){
+                            textField2.setText("Invalid");
+                        }
+                        else {
                             double result = (Value / currency1[obj1]) * currency2[obj2];
                             String convert = String.format("%.3f", result);
                             textField2.setText(convert);

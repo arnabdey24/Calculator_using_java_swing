@@ -33,11 +33,11 @@ public class CommonFrame extends JFrame {
         container.add(textField2);
 
         comboBox1 = new JComboBox();
-        comboBox1.setBounds(140, 90, 89, 40);
+        comboBox1.setBounds(150, 90, 89, 40);
         container.add(comboBox1);
 
         comboBox2 = new JComboBox();
-        comboBox2.setBounds(140, 190, 89, 40);
+        comboBox2.setBounds(150, 190, 89, 40);
         container.add(comboBox2);
     }
 }
