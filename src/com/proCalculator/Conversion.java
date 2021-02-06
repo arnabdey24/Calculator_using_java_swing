@@ -35,19 +35,17 @@ public class Conversion extends CommonFrame {
                     String selected2 = (String) comboBox2.getSelectedItem();
 
                     if (textField1.getText() == null && textField2.getText() == null) {
-                        unitConvert.setToolTipText("Invalid");
                         textField2.setText("Invalid");
                     } else if (selected1.equals("None") || selected2.equals("None")) {
-                        unitConvert.setToolTipText("Invalid");
                         textField2.setText("Invalid");
                     } else {
 
                         double value = Double.parseDouble(textField1.getText());
-                        if (selected1.equals("Fahrenheit")) value = ((value - 32) * 5 / 9);
-                        else if (selected1.equals("Kelvin")) value = (value * 1 - 273.15);
+                        if (selected1.equals("Fahrenheit")) value = ((value - 32) * 5 / 9); //Converted into Celsius
+                        else if (selected1.equals("Kelvin")) value = (value * 1 - 273.15);  //Converted into Celsius
 
-                        if (selected2.equals("Fahrenheit")) value = (value * 1.8 + 32);
-                        else if (selected2.equals("Kelvin")) value = (value + 273.15);
+                        if (selected2.equals("Fahrenheit")) value = (value * 1.8 + 32);   //Celsius to Fahrenheit
+                        else if (selected2.equals("Kelvin")) value = (value + 273.15);    //Celsius to Kelvin
 
                         textField2.setText(String.valueOf(value));
                     }

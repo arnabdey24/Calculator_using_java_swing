@@ -14,8 +14,6 @@ public class UnitConvert extends CommonFrame {
     UnitConvert() {
         components3();
     }
-
-
     public void components3() {
         comboBox1.addItem("None");
         comboBox1.addItem("Metre");
@@ -40,28 +38,26 @@ public class UnitConvert extends CommonFrame {
                     String box1 = (String) comboBox1.getSelectedItem();
                     String box2 = (String) comboBox2.getSelectedItem();
                     if (textField1.getText() == null && textField2.getText() == null) {
-                        unitConvert.setToolTipText("Invalid");
                         textField2.setText("Invalid");
                     } else if (box1.equals("None") || box2.equals("None")) {
-                        unitConvert.setToolTipText("Invalid");
                         textField2.setText("Invalid");
                     } else {
                         double value = Double.parseDouble(textField1.getText());
-                        if (box1.equals("Metre")) value = (value * 1);
-                        else if (box1.equals("Centimetre")) value = (value * 0.01);
-                        else if (box1.equals("Kilometre")) value = (value * 1000);
-                        else if (box1.equals("Millimetre")) value = (value * 0.001);
-                        else if (box1.equals("Decimetre")) value = (value * 0.1);
-                        else if (box1.equals("Feet")) value = (value * 0.3048);
-                        else if (box1.equals("Inch")) value = (value * 0.0254);
+                        if (box1.equals("Metre")) value = (value * 1);              //Converted to Metre
+                        else if (box1.equals("Centimetre")) value = (value * 0.01); //Converted to Metre
+                        else if (box1.equals("Kilometre")) value = (value * 1000);  //Converted to Metre
+                        else if (box1.equals("Millimetre")) value = (value * 0.001);//Converted to Metre
+                        else if (box1.equals("Decimetre")) value = (value * 0.1);   //Converted to Metre
+                        else if (box1.equals("Feet")) value = (value * 0.3048);     //Converted to Metre
+                        else if (box1.equals("Inch")) value = (value * 0.0254);     //Converted to Metre
 
                         if (box2.equals("Metre")) value = (value * 1);
-                        else if (box2.equals("Centimetre")) value = (value * 100);
-                        else if (box2.equals("Kilometre")) value = (value / 1000);
-                        else if (box2.equals("Millimetre")) value = (value * 1000);
-                        else if (box2.equals("Decimetre")) value = (value * 10);
-                        else if (box2.equals("Feet")) value = (value * 3.28084);
-                        else if (box2.equals("Inch")) value = (value * 39.3701);
+                        else if (box2.equals("Centimetre")) value = (value * 100);  //Metre to Centimetre
+                        else if (box2.equals("Kilometre")) value = (value / 1000);  //Metre to Kilometre
+                        else if (box2.equals("Millimetre")) value = (value * 1000); //Metre to Millimetre
+                        else if (box2.equals("Decimetre")) value = (value * 10);    //Metre to Decimetre
+                        else if (box2.equals("Feet")) value = (value * 3.28084);    //Metre to Feet
+                        else if (box2.equals("Inch")) value = (value * 39.3701);    //Metre to Inch
                         textField2.setText(String.valueOf(value));
                     }
                 } catch (Exception ex) {
