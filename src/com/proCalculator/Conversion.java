@@ -35,10 +35,8 @@ public class Conversion extends CommonFrame {
                     String selected2 = (String) comboBox2.getSelectedItem();
 
                     if (textField1.getText() == null && textField2.getText() == null) {
-                        unitConvert.setToolTipText("Invalid");
                         textField2.setText("Invalid");
                     } else if (selected1.equals("None") || selected2.equals("None")) {
-                        unitConvert.setToolTipText("Invalid");
                         textField2.setText("Invalid");
                     } else {
 

@@ -38,10 +38,8 @@ public class UnitConvert extends CommonFrame {
                     String box1 = (String) comboBox1.getSelectedItem();
                     String box2 = (String) comboBox2.getSelectedItem();
                     if (textField1.getText() == null && textField2.getText() == null) {
-                        unitConvert.setToolTipText("Invalid");
                         textField2.setText("Invalid");
                     } else if (box1.equals("None") || box2.equals("None")) {
-                        unitConvert.setToolTipText("Invalid");
                         textField2.setText("Invalid");
                     } else {
                         double value = Double.parseDouble(textField1.getText());
