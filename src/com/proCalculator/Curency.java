@@ -42,7 +42,7 @@ public class Curency extends CommonFrame
 
 
                         if (obj1 == obj2) {
-                            String sameCurrency = "Same Currenc";
+                            String sameCurrency = "Same Currency";
                             textField2.setText(sameCurrency);
                         } else if(Value<0){
                             textField2.setText("Invalid");
