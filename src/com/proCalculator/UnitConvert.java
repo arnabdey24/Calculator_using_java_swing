@@ -41,8 +41,10 @@ public class UnitConvert extends CommonFrame {
                         textField2.setText("Invalid");
                     } else if (box1.equals("None") || box2.equals("None")) {
                         textField2.setText("Invalid");
-                    } else {
+                    }
+                    else {
                         double value = Double.parseDouble(textField1.getText());
+
                         if (box1.equals("Metre")) value = (value * 1);              //Converted to Metre
                         else if (box1.equals("Centimetre")) value = (value * 0.01); //Converted to Metre
                         else if (box1.equals("Kilometre")) value = (value * 1000);  //Converted to Metre
@@ -59,6 +61,10 @@ public class UnitConvert extends CommonFrame {
                         else if (box2.equals("Feet")) value = (value * 3.28084);    //Metre to Feet
                         else if (box2.equals("Inch")) value = (value * 39.3701);    //Metre to Inch
                         textField2.setText(String.valueOf(value));
+
+                        if(value<0){
+                            textField2.setText("Invalid");
+                        }
                     }
                 } catch (Exception ex) {
                     textField2.setText("Invalid");
