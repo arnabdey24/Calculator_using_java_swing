@@ -24,11 +24,11 @@ public class CommonFrame extends JFrame {
         container.add(unitConvert);
 
         textField1 = new JTextField();
-        textField1.setBounds(20, 90, 80, 40);
+        textField1.setBounds(20, 90, 100, 40);
         container.add(textField1);
 
         textField2 = new JTextField();
-        textField2.setBounds(20, 190, 80, 40);
+        textField2.setBounds(20, 190, 100, 40);
         textField2.setEditable(false);
         container.add(textField2);
 
