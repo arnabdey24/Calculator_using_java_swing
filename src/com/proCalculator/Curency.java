@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 public class Curency extends CommonFrame
     {
-        double currency1[] = {0,1,0.86,0.012,0.0086,1.24,0.0098};
-        double currency2[] = {0,1,0.86,0.012,0.0086,1.24,0.0098};
+        double currency1[] = {1,0.86,0.012,0.0086,1.24,0.0098};
+        double currency2[] = {1,0.86,0.012,0.0086,1.24,0.0098};
 
         public Curency()
         {
@@ -15,7 +15,6 @@ public class Curency extends CommonFrame
 
     public void components4(){
 
-        comboBox1.addItem("None");
         comboBox1.addItem("Taka");
         comboBox1.addItem("Rupee");
         comboBox1.addItem("Dollar");
@@ -23,7 +22,6 @@ public class Curency extends CommonFrame
         comboBox1.addItem("Yen");
         comboBox1.addItem("Euro");
 
-        comboBox2.addItem("None");
         comboBox2.addItem("Taka");
         comboBox2.addItem("Rupee");
         comboBox2.addItem("Dollar");
@@ -40,11 +38,11 @@ public class Curency extends CommonFrame
                     int obj1 = comboBox1.getSelectedIndex();
                     int obj2 = comboBox2.getSelectedIndex();
 
-
-                        if (obj1 == obj2) {
-                            String sameCurrency = "Same Currency";
+                    if (obj1 == obj2) {
+                        String sameCurrency = "Same Currency";
                             textField2.setText(sameCurrency);
-                        } else if(Value<0){
+                        }
+                     else if(Value<0){
                             textField2.setText("Invalid");
                         }
                         else {
