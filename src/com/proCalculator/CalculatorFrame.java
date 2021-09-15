@@ -283,7 +283,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 if(count<31) {
                     count++;
                     label.setText(label.getText() + buttonPlus.getText());
-                    if (exp.isBlank())
+                    if (exp.isEmpty())
                         exp = "";
                     else if (exp.endsWith(" * ") || exp.endsWith(" / ") || exp.endsWith(" - ") || exp.endsWith(" + "))
                         exp = exp + buttonPlus.getText();       //e.g.,( 1 * -2 ) here -2 is a number (-) is not a operation here,so space gap is not needed
@@ -295,7 +295,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 if(count<31) {
                     count++;
                     label.setText(label.getText() + buttonMinus.getText());                                                    //
-                    if (exp.isBlank())                                                                                        //
+                    if (exp.isEmpty())                                                                                        //
                         exp = buttonMinus.getText();                                                                         //  we did same thing as for (+)
                     else if (exp.endsWith(" * ") || exp.endsWith(" / ") || exp.endsWith(" + ") || exp.endsWith(" - ")) {    //
                         exp = exp + buttonMinus.getText();                                                                 //

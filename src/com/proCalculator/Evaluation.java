@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 class Evaluation {
 
-    private HashMap<String,Integer> precedence=new HashMap<>(){{
+    private HashMap<String,Integer> precedence=new HashMap<String,Integer>(){{
         put("-", 2);
         put("+", 3);
         put("*", 4);
