@@ -1,10 +1,8 @@
 package com.proCalculator;
 
-import java.awt.Color;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+
 
 public class Conversion extends CommonFrame {
 
@@ -23,7 +21,6 @@ public class Conversion extends CommonFrame {
         comboBox2.addItem("Celsius");
         comboBox2.addItem("Fahrenheit");
         comboBox2.addItem("Kelvin");
-
 
 
         unitConvert.addActionListener(new ActionListener() {

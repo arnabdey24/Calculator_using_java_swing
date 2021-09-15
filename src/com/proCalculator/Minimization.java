@@ -1,7 +1,7 @@
 package com.proCalculator;
 
 public class Minimization {
-     String getMinimizedValue(String ans) {
+    public String getMinimizedValue(String ans) {
         try {
             double n = Double.parseDouble(ans);
             int m = (int) n;
@@ -10,7 +10,7 @@ public class Minimization {
             } else {
                 return String.valueOf(n);
             }
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             return "Invalid";
         }
     }

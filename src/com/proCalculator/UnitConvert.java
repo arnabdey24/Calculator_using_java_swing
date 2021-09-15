@@ -1,19 +1,15 @@
 package com.proCalculator;
 
-import java.awt.Color;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
+
 
 public class UnitConvert extends CommonFrame {
 
     UnitConvert() {
         components3();
     }
+
     public void components3() {
         comboBox1.addItem("None");
         comboBox1.addItem("Metre");
@@ -41,8 +37,7 @@ public class UnitConvert extends CommonFrame {
                         textField2.setText("Invalid");
                     } else if (box1.equals("None") || box2.equals("None")) {
                         textField2.setText("Invalid");
-                    }
-                    else {
+                    } else {
                         double value = Double.parseDouble(textField1.getText());
 
                         if (box1.equals("Metre")) value = (value * 1);              //Converted to Metre
@@ -62,7 +57,7 @@ public class UnitConvert extends CommonFrame {
                         else if (box2.equals("Inch")) value = (value * 39.3701);    //Metre to Inch
                         textField2.setText(String.valueOf(value));
 
-                        if(value<0){
+                        if (value < 0) {
                             textField2.setText("Invalid");
                         }
                     }

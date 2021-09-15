@@ -7,19 +7,19 @@ import java.awt.event.ActionListener;
 
 public class CalculatorFrame extends JFrame implements ActionListener {
 
-     JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonUnit,buttonTemp,
-            buttonPlus,buttonMinus,buttonDiv,buttonMultiple,buttonDot,buttonEqual,buttonClear,buttonTri,buttonCurrency;
-     JPanel panel;
-     JLabel label,label2;
+    JButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button0, buttonUnit, buttonTemp,
+            buttonPlus, buttonMinus, buttonDiv, buttonMultiple, buttonDot, buttonEqual, buttonClear, buttonTri, buttonCurrency;
+    JPanel panel;
+    JLabel label, label2;
 
-     Minimization minimization;
-     Evaluation evaluation;
+    Minimization minimization;
+    Evaluation evaluation;
 
     public CalculatorFrame(String title) {
         super(title);
 
-        minimization=new Minimization();
-        evaluation=new Evaluation();
+        minimization = new Minimization();
+        evaluation = new Evaluation();
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,13 +32,13 @@ public class CalculatorFrame extends JFrame implements ActionListener {
 
         label = new JLabel();
         label.setBounds(10, 25, 350, 35);
-        label.setFont(new Font("Calibri", Font.BOLD,20));
+        label.setFont(new Font("Calibri", Font.BOLD, 20));
         panel.add(label);
         panel.setBackground(Color.lightGray);
 
         label2 = new JLabel();
         label2.setBounds(10, 100, 341, 35);
-        label2.setFont(new Font("Calibri", Font.BOLD,30));
+        label2.setFont(new Font("Calibri", Font.BOLD, 30));
         label2.setHorizontalAlignment(JLabel.RIGHT);
         panel.add(label2);
         panel.setBackground(Color.lightGray);
@@ -128,25 +128,24 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         panel.add(buttonMultiple);
 
         buttonDiv = new JButton("/");
-        buttonDiv.setBounds(273,237,89,60);
+        buttonDiv.setBounds(273, 237, 89, 60);
         buttonDiv.addActionListener(this);
         panel.add(buttonDiv);
 
         buttonTemp = new JButton("<html>Temp.<br />Converter</html>");
-        buttonTemp.setBounds(183,176,89,60);
+        buttonTemp.setBounds(183, 176, 89, 60);
         panel.add(buttonTemp);
 
         buttonUnit = new JButton("<html>Unit<br />Converter</html>");
-        buttonUnit.setBounds(3,176,89,60);
+        buttonUnit.setBounds(3, 176, 89, 60);
         panel.add(buttonUnit);
 
         buttonCurrency = new JButton("<html>Currency<br />Converter</html>");
-        buttonCurrency.setBounds(273,176,89,60);
+        buttonCurrency.setBounds(273, 176, 89, 60);
         panel.add(buttonCurrency);
 
-        buttonUnit.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e)
-            {
+        buttonUnit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 UnitConvert uFrame = new UnitConvert();
                 uFrame.setVisible(true);
                 uFrame.setLocation(950, 100);
@@ -155,9 +154,8 @@ public class CalculatorFrame extends JFrame implements ActionListener {
             }
         });
 
-        buttonTemp.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e)
-            {
+        buttonTemp.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 Conversion frame1 = new Conversion();
                 frame1.setVisible(true);
                 frame1.setLocation(950, 100);
@@ -166,9 +164,8 @@ public class CalculatorFrame extends JFrame implements ActionListener {
             }
         });
 
-        buttonTri.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e)
-            {
+        buttonTri.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 Triangle tFrame = new Triangle();
                 tFrame.setVisible(true);
                 tFrame.setLocation(950, 100);
@@ -177,110 +174,110 @@ public class CalculatorFrame extends JFrame implements ActionListener {
             }
         });
 
-        buttonCurrency.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e)
-            {
-                Curency curencyFrame = new Curency();
-                curencyFrame.setVisible(true);
-                curencyFrame.setLocation(950, 100);
-                curencyFrame.setSize(381, 580);
-                curencyFrame.setTitle("Converter");
+        buttonCurrency.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Currency currencyFrame = new Currency();
+                currencyFrame.setVisible(true);
+                currencyFrame.setLocation(950, 100);
+                currencyFrame.setSize(381, 580);
+                currencyFrame.setTitle("Converter");
             }
         });
         this.add(panel);
         setResizable(false);
     }
 
-    private int count=0;
-    private String exp="";
-    private boolean answered=false;
-    public void actionPerformed(ActionEvent actionevent){
-        if(answered){              //
+    private int count = 0;
+    private String exp = "";
+    private boolean answered = false;
+
+    public void actionPerformed(ActionEvent actionevent) {
+        if (answered) {              //
             label.setText("");     //  if it already answered, we need to remove the old expression first which is displayed
             label2.setText("");    //
-            answered=false;        //
+            answered = false;        //
         }
         String str = actionevent.getActionCommand();
         switch (str) {
             case "1":
-                if(count<32) {
+                if (count < 32) {
                     count++;      //the count will limit the expression , so the expression will not get too long to handle
                     label.setText(label.getText() + button1.getText());  //label text is what we see
                     exp = exp + button1.getText();                       //and the exp is what we going to calculate
                 }
                 break;
             case "2":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button2.getText());
                     exp = exp + button2.getText();
                 }
                 break;
             case "3":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button3.getText());
                     exp = exp + button3.getText();
                 }
                 break;
             case "4":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button4.getText());
                     exp = exp + button4.getText();
                 }
                 break;
             case "5":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button5.getText());
                     exp = exp + button5.getText();
                 }
                 break;
             case "6":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button6.getText());
                     exp = exp + button6.getText();
                 }
                 break;
             case "7":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button7.getText());
                     exp = exp + button7.getText();
                 }
                 break;
             case "8":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button8.getText());
                     exp = exp + button8.getText();
                 }
                 break;
             case "9":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button9.getText());
                     exp = exp + button9.getText();
                 }
                 break;
             case "0":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + button0.getText());
                     exp = exp + button0.getText();
                 }
                 break;
             case ".":
-                if(count<32) {
+                if (count < 32) {
                     count++;
                     label.setText(label.getText() + buttonDot.getText());
                     exp = exp + buttonDot.getText();
                 }
                 break;
             case "+":
-                if(count<31) {
+                if (count < 31) {
                     count++;
                     label.setText(label.getText() + buttonPlus.getText());
                     if (exp.isEmpty())
@@ -292,7 +289,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 }
                 break;
             case "-":
-                if(count<31) {
+                if (count < 31) {
                     count++;
                     label.setText(label.getText() + buttonMinus.getText());                                                    //
                     if (exp.isEmpty())                                                                                        //
@@ -304,14 +301,14 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 }
                 break;
             case "x":
-                if(count<31) {
+                if (count < 31) {
                     count++;
                     label.setText(label.getText() + buttonMultiple.getText());
                     exp = exp + " " + "*" + " ";
                 }
                 break;
             case "/":
-                if(count<31) {
+                if (count < 31) {
                     count++;
                     label.setText(label.getText() + buttonDiv.getText());
                     exp = exp + " " + buttonDiv.getText() + " ";
@@ -321,19 +318,19 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 System.out.println(exp);
                 String ans = evaluation.evaluate(exp);        // evaluate the expression
 
-                ans=minimization.getMinimizedValue(ans);             // did minimization e.g., 2.000 will be now 2
+                ans = minimization.getMinimizedValue(ans);             // did minimization e.g., 2.000 will be now 2
 
                 System.out.println(ans);
                 label2.setText(ans);
-                exp="";
-                answered=true;
-                count=0;
+                exp = "";
+                answered = true;
+                count = 0;
                 break;
             case "C":
                 label.setText("");
                 label2.setText("");
-                exp="";
-                count=0;
+                exp = "";
+                count = 0;
                 break;
         }
 

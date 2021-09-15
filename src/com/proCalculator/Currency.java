@@ -3,17 +3,15 @@ package com.proCalculator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Curency extends CommonFrame
-    {
-        double currency1[] = {1,0.86,0.012,0.0086,1.24,0.0098};
-        double currency2[] = {1,0.86,0.012,0.0086,1.24,0.0098};
+public class Currency extends CommonFrame {
+    double currency1[] = {1, 0.86, 0.012, 0.0086, 1.24, 0.0098};
+    double currency2[] = {1, 0.86, 0.012, 0.0086, 1.24, 0.0098};
 
-        public Curency()
-        {
+    public Currency() {
         components4();
-        }
+    }
 
-    public void components4(){
+    public void components4() {
 
         comboBox1.addItem("Taka");
         comboBox1.addItem("Rupee");
@@ -40,29 +38,26 @@ public class Curency extends CommonFrame
 
                     if (obj1 == obj2) {
                         String sameCurrency = "Same Currency";
-                            textField2.setText(sameCurrency);
-                        }
-                     else if(Value<0){
-                            textField2.setText("Invalid");
-                        }
-                        else {
-                            double result = (Value / currency1[obj1]) * currency2[obj2];
-                            String convert = String.format("%.3f", result);
-                            textField2.setText(convert);
-                        }
-                }
-                catch (Exception ex) {
+                        textField2.setText(sameCurrency);
+                    } else if (Value < 0) {
                         textField2.setText("Invalid");
+                    } else {
+                        double result = (Value / currency1[obj1]) * currency2[obj2];
+                        String convert = String.format("%.3f", result);
+                        textField2.setText(convert);
                     }
+                } catch (Exception ex) {
+                    textField2.setText("Invalid");
                 }
-            });
+            }
+        });
 
         clear.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    textField1.setText("");
-                    textField2.setText("");
-                }
-            });
-        }
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText("");
+                textField2.setText("");
+            }
+        });
     }
+}
 
